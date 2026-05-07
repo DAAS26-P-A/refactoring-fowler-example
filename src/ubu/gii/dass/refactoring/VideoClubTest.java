@@ -44,7 +44,8 @@ public class VideoClubTest {
 		c1.addRental(r1);
 		c1.addRental(r2);
 		c1.addRental(r3);
-
+		
+		// --- Test del statement original en Texto ---
 		String salida = c1.statement();
 
 		String salidaEsperada = new String("Rental Record for Manuel\n"
@@ -53,6 +54,18 @@ public class VideoClubTest {
 				+ "You earned 4 frequent renter points");
 
 		assertTrue("Calcula mal el alquiler", salidaEsperada.equals(salida));
+		
+		// --- Test del nuevo htmlStatement ---
+		String salidaHTML = c1.htmlStatement();
+		
+		String salidaEsperadaHTML = "<H1>Rental Record for Manuel</H1>"
+				+ "<H2>Sky Captain 15.0</H2>"
+				+ "<H2>Accion Mutante 2.0</H2>"
+				+ "<H2>Hermano Oso 12.0</H2>"
+				+ "<P>Amount owed is 29.0</P>"
+				+ "<P> You earned 4 frequent renter points </P>";
+
+		assertEquals("Calcula mal el alquiler en formato HTML", salidaEsperadaHTML, salidaHTML);
 
 	}
 
