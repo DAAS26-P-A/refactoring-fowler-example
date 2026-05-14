@@ -6,5 +6,7 @@ abstract class PriceMovie {
 	
 	abstract double getCharge(int _daysRented);
 	
-	abstract int getFrequentRenterPoints(int _daysRented);
+	int getFrequentRenterPoints(int _daysRented) {
+		return 1;
+	}
 }
